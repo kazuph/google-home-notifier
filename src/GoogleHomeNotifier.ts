@@ -1,6 +1,6 @@
 import { Client, DefaultMediaReceiver } from 'castv2-client';
 import googletts from 'google-tts-api';
-import mdns from 'mdns-js';
+import mdns from 'mdns';
 
 export interface Options {
   device?: string;
@@ -54,11 +54,8 @@ export default class GoogleHomeNotifier {
     });
 
     const browserProm = new Promise(resolve => {
-      browser.on('ready', () => {
-        browser.discover();
-      });
-
-      browser.on('update', service => {
+      browser.start();
+      browser.on('serviceUp', service => {
         if (
           service.fullname != undefined &&
           service.fullname.indexOf(this.deviceName.replace(' ', '-')) !== -1

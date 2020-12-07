@@ -20,9 +20,10 @@
     "test": "jest --forceExit --detectOpenHandles"
   },
   "dependencies": {
+    "@types/mdns": "^0.0.33",
     "castv2-client": "^1.2.0",
-    "google-tts-api": "^0.0.4",
-    "mdns-js": "^1.0.3"
+    "google-tts-api": "^0.0.6",
+    "mdns": "^2.7.2"
   },
   "devDependencies": {
     "@shooontan/tsconfig": "^0.0.1",
